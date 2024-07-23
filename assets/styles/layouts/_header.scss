@@ -1,0 +1,130 @@
+header {
+  color: $white1;
+  position: relative;
+  min-height: 100vh;
+
+  .header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: headerAnim 1.5s ease forwards;
+
+    @keyframes headerAnim {
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      @include title;
+      font-size: 4rem;
+      letter-spacing: 6px;
+
+      @media screen and (max-width: 700px) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      margin: 40px auto 60px;
+      font-style: italic;
+      width: 85%;
+    }
+
+    span {
+      border: 2px solid $white1;
+      border-radius: 50px;
+      height: 60px;
+      width: 60px;
+      font-size: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.15s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    background: rgb(216, 216, 216);
+    color: $white1;
+    width: 85%;
+    height: 65px;
+    z-index: 100;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
+    ul {
+      display: flex;
+      align-items: center;
+      font-family: Inter;
+    }
+
+    .nav-left {
+      &:hover li:not(:hover) {
+        background: none;
+        color: $white1;
+      }
+
+      li {
+        @include title;
+        font-size: 0.7rem;
+        padding: 0 15px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        @media screen and (max-width: 700px) {
+          font-size: 0.5rem;
+        }
+
+        &:first-child {
+          background: $white1;
+          color: $black1;
+        }
+
+        &:hover {
+          background: $white1;
+          color: $black1;
+        }
+      }
+    }
+
+    .nav-right {
+      font-size: 1.1rem;
+      min-width: 100px;
+      width: 25%;
+      max-width: 300px;
+      justify-content: space-around;
+      margin-right: 20px;
+
+      @media screen and (max-width: 700px) {
+        display: none;
+      }
+
+      li {
+        transition: 0.15s;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.3);
+        }
+      }
+    }
+  }
+}
